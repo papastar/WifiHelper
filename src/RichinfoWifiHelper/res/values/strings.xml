@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Richinfo无线助手</string>
+    <string name="action_settings">设置</string>
+    <string name="hello_world">Hello world!</string>
+
+    
+    <string name="connected">已连接</string>
+    <string name="authed">已验证</string>
+    <string name="disable">wifi未打开</string>
+      <string name="enable">wifi已打开</string>
+</resources>
