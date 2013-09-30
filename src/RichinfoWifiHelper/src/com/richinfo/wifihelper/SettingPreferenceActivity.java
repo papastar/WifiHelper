@@ -1,6 +1,6 @@
 package com.richinfo.wifihelper;
 
-import com.richinfo.wifihelper.Data.AccountManager;
+import com.richinfo.wifihelper.Data.DataManager;
 import com.umeng.analytics.MobclickAgent;
 import com.umeng.update.UmengUpdateAgent;
 import com.umeng.update.UmengUpdateListener;
@@ -18,14 +18,14 @@ import android.preference.PreferenceActivity;
 public class SettingPreferenceActivity extends PreferenceActivity implements
 		OnPreferenceChangeListener, OnPreferenceClickListener {
 
-	private AccountManager mAccountManager;
+	private DataManager mAccountManager;
 	private Preference mVersionPreference;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		UmengUpdateAgent.update(this);
-		mAccountManager = AccountManager.getInstance();
+		mAccountManager = DataManager.getInstance();
 		addPreferencesFromResource(R.xml.preference);
 		// …Ë÷√∞Ê±æ∫≈
 		Preference versionPreference = findPreference("version_key");

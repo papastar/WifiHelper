@@ -35,7 +35,7 @@ public class AuthConnectManager {
 	}
 
 	public void setBasicAuth() {
-		Account account = AccountManager.getInstance().getAccount();
+		Account account = DataManager.getInstance().getAccount();
 		if (account != null) {
 			setBasicAuth(account.getUsername(), account.getPassword());
 		}

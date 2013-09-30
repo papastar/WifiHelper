@@ -7,11 +7,7 @@ import android.content.Intent;
 import android.net.NetworkInfo;
 import android.net.wifi.WifiManager;
 import android.os.Parcelable;
-import android.text.TextUtils;
-import android.view.View;
-
-import com.richinfo.wifihelper.Data.Account;
-import com.richinfo.wifihelper.Data.AccountManager;
+import com.richinfo.wifihelper.Data.DataManager;
 import com.richinfo.wifihelper.Data.AuthConnectManager;
 import com.richinfo.wifihelper.Data.NotifyManager;
 import com.richinfo.wifihelper.common.net.AsyncHttpResponseHandler;
@@ -27,7 +23,7 @@ public class WifiStateReceiver extends BroadcastReceiver {
 	}
 
 	private void autoAuth() {
-		AccountManager accountManager = AccountManager.getInstance();
+		DataManager accountManager = DataManager.getInstance();
 		final AuthConnectManager connectManager = AuthConnectManager
 				.getInstance();
 		if (accountManager.checkAutoAuth()) {
@@ -42,35 +38,7 @@ public class WifiStateReceiver extends BroadcastReceiver {
 
 				@Override
 				public void onSuccess(int statusCode, String content) {
-
-					super.onSuccess(statusCode, content);
-					connectManager
-							.checkNetConnect(new AsyncHttpResponseHandler() {
-
-								@Override
-								public void onSuccess(String content) {
-
-									super.onSuccess(content);
-								}
-
-								@Override
-								public void onSuccess(int statusCode,
-										String content) {
-
-									super.onSuccess(statusCode, content);
-									NotifyManager
-											.getInstance()
-											.showNotification(WifiStatus.AUTHED);
-									notifyState(WifiStatus.AUTHED);
-								}
-
-								@Override
-								public void onFailure(Throwable error,
-										String content) {
-									super.onFailure(error, content);
-								}
-
-							});
+					checkNetConnect();
 				}
 
 				@Override
@@ -152,6 +120,10 @@ public class WifiStateReceiver extends BroadcastReceiver {
 					break;
 				case DISCONNECTING:
 
+					break;
+				case DISCONNECTED:
+					NotifyManager.getInstance().showNotification(
+							WifiStatus.DISCONNECTED);
 					break;
 				case SUSPENDED:
 

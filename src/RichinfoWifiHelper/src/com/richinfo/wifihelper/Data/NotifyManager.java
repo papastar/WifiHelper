@@ -53,7 +53,7 @@ public class NotifyManager {
 	}
 
 	public void showNotification(WifiStatus status) {
-		AccountManager accountManager = AccountManager.getInstance();
+		DataManager accountManager = DataManager.getInstance();
 
 		if (accountManager.checkShowNotify()) {
 			switch (status) {
@@ -68,9 +68,11 @@ public class NotifyManager {
 						.getBSSID());
 				break;
 			case AUTHED:
-				showNotify("Wifi已验证", WifiStatusManager.getInstance()
+				showNotify("Wifi已认证", WifiStatusManager.getInstance()
 						.getBSSID());
 				break;
+			case DISCONNECTED:
+				showNotify("Wifi未连接", "");
 			default:
 				break;
 			}

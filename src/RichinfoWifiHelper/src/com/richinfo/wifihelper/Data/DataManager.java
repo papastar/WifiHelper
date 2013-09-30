@@ -7,24 +7,27 @@ import android.content.SharedPreferences.Editor;
 import android.preference.PreferenceManager;
 import android.text.TextUtils;
 
-public class AccountManager {
+public class DataManager {
 
 	private static final String USERNAME_KEY = "username";
 	private static final String PASSWORD_KEY = "password";
 	private static final String AUTO_AUTH_KEY = "auto_auth";
 	private static final String SHOW_NOTIFY_KEY = "show_notify";
+	private static final String DOWNLOAD_THINKMAIL ="down_thinkmail";
+	private static final String DOWNLOAD_THINKDRIVE ="down_thinkdrive";
+	
 	private SharedPreferences mPreference;
 
-	private static AccountManager mInstance;
+	private static DataManager mInstance;
 
-	private AccountManager() {
+	private DataManager() {
 		mPreference = PreferenceManager.getDefaultSharedPreferences(AppInstance
 				.getInstance());
 	}
 
-	public static AccountManager getInstance() {
+	public static DataManager getInstance() {
 		if (mInstance == null)
-			mInstance = new AccountManager();
+			mInstance = new DataManager();
 		return mInstance;
 	}
 
@@ -51,7 +54,7 @@ public class AccountManager {
 	}
 
 	public boolean checkAutoAuth() {
-		return mPreference.getBoolean(AUTO_AUTH_KEY, false);
+		return mPreference.getBoolean(AUTO_AUTH_KEY, true);
 	}
 
 	public void setAutoAuth(boolean authAuto) {
@@ -67,6 +70,26 @@ public class AccountManager {
 	public void setShowNotify(boolean showNotify) {
 		Editor editor = mPreference.edit();
 		editor.putBoolean(SHOW_NOTIFY_KEY, showNotify);
+		editor.commit();
+	}
+	
+	public long getThinkMailDownId(){
+		return mPreference.getLong(DOWNLOAD_THINKMAIL, -1);
+	}
+	
+	public void setThinkMailDownId(long id){
+		Editor editor = mPreference.edit();
+		editor.putLong(DOWNLOAD_THINKMAIL, id);
+		editor.commit();
+	}
+	
+	public long getThinkDriveDownId(){
+		return mPreference.getLong(DOWNLOAD_THINKDRIVE, -1);
+	}
+	
+	public void setThinkDriveDownId(long id){
+		Editor editor = mPreference.edit();
+		editor.putLong(DOWNLOAD_THINKDRIVE, id);
 		editor.commit();
 	}
 }

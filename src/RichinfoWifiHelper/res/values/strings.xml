@@ -1,13 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">Richinfo无线助手</string>
+    <string name="app_name">彩讯Wifi助手</string>
     <string name="action_settings">设置</string>
-    <string name="hello_world">Hello world!</string>
+    <string name="wifi_status">Wifi状态</string>
+    <string name="verify">验证</string>
+    <string name="version">彩讯Wifi助手V1.0</string>
+    <string name="action">只要手机连上公司的wifi热点，彩讯Wifi助手就可以帮你自动通过网络认证，永免输入之苦。</string>
+    <string name="developer">开发：ThinkMail开发组</string>
+    <string name="ui">UI：刘秋香</string>
+    <string name="applicaiton_recommend">应用推荐</string>
+    <string name="thinkdrive">ThinkDrive</string>
+    <string name="thinkmail">ThinkMail</string>
+    <string name="wifi_close">已关闭</string>
+    <string name="wifi_unconnect">未连接</string>
+    <string name="wifi_connect">已连接</string>
+    <string name="unauthed">未认证</string>
+    <string name="authed">已认证</string>
+    <string name="authed_fail">认证失败</string>
+    <string name="auth">认证</string>
+    <string name="change_account">更换账号</string>
+    <string name="input_name">请输入用户名</string>
+    <string name="input_password">请输入密码</string>
+    <string name="cancel">取消</string>
 
-    
-    <string name="connected">已连接</string>
-    <string name="authed">已验证</string>
-    <string name="disable">wifi未打开</string>
-      <string name="enable">wifi已打开</string>
 </resources>

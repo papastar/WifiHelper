@@ -42,8 +42,14 @@
                 <action android:name="android.net.wifi.supplicant.CONNECTION_CHANGE" />
             </intent-filter>
         </receiver>
+        <receiver android:name="com.richinfo.wifihelper.DownCompleteReceiver" >
+            <intent-filter>
+                <action android:name="android.intent.action.DOWNLOAD_COMPLETE" />
+            </intent-filter>
+        </receiver>
 
-        <activity android:name="SettingPreferenceActivity" >
+       
+        <activity android:name=".AboutActivity" >
         </activity>
 
         <service
