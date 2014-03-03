@@ -5,7 +5,7 @@ import com.richinfo.wifihelper.common.net.AsyncHttpResponseHandler;
 
 public class AuthConnectManager {
 
-	private static final String AUTH_URL = "http://192.168.6.254:80/login/";
+	private static final String AUTH_URL = "http://192.168.31.254:80/login/";
 	private static final String NET_URL = "http://www.baidu.com";
 
 	private static AuthConnectManager mInstance;
